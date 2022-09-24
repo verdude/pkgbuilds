@@ -1,12 +1,12 @@
-pkgname="ignore"
-arch=("x86_64")
-pkgdesc="ignore file gen"
+pkgname=ignore
+arch=('x86_64')
+pkgdesc='ignore file gen'
 pkgrel=1
 pkgver=0.1.1
-url="https://github.com/verdude/ignore"
+url='https://github.com/verdude/ignore'
 source=("git+${url}")
 sha256sums=('SKIP')
-makedepends=("git" "go")
+makedepends=('git' 'go')
 
 build() {
     cd "${srcdir}/${pkgname}"
