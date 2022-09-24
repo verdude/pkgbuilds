@@ -31,4 +31,5 @@ if [[ $? -eq 1 ]]; then
   git push
 fi
 
+git clean -dff
 pop
