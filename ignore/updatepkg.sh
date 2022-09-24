@@ -1,12 +1,16 @@
 #!/usr/bin/env bash
 
-set -xeuo pipefail
+set -euo pipefail
 
 stashed=""
 
 stash() {
   git diff-files --quiet
-  test $? -eq 1 && git reset && git stash save -u && stashed="1" ||:
+  if [[ $? -eq 1 ]]; then
+    git reset
+    git stash save -u
+    stashed="1"
+  fi
 }
 
 pop() {
