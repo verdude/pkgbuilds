@@ -1,0 +1,13 @@
+pkgname="ignore"
+url="https://github.com/verdude/ignore"
+arch=("x86_64")
+pkgrel=1
+pkgver=0.1.1
+source=("git+${url}")
+sha256sums=("SKIP")
+pkgdesc="ignore file gen"
+
+package() {
+    cd "${srcdir}/${pkgname}"
+
+}
