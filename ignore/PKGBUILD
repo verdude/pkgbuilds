@@ -13,6 +13,11 @@ build() {
     make
 }
 
+pkgver() {
+    cd "${srcdir}/${pkgname}"
+    git describe --tags --abbrev=0
+}
+
 check() {
     cd "${srcdir}/${pkgname}"
     make test
