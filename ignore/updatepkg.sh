@@ -3,9 +3,19 @@
 set -euo pipefail
 
 stashed=""
+install=""
+
+while getopts i flag
+do
+  case ${flag} in
+    i) install="i";;
+  esac
+done
 
 stash() {
+  set +e
   git diff-files --quiet
+  set -e
   if [[ $? -eq 1 ]]; then
     git reset
     git stash save -u
@@ -21,8 +31,10 @@ pop() {
 }
 
 stash
-makepkg -cCsrf
+makepkg -cCsrf$install
+set +e
 git diff-files --quiet
+set -e
 
 if [[ $? -eq 1 ]]; then
   . PKGBUILD
