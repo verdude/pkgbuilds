@@ -1,13 +1,24 @@
 pkgname="ignore"
-url="https://github.com/verdude/ignore"
 arch=("x86_64")
+pkgdesc="ignore file gen"
 pkgrel=1
 pkgver=0.1.1
+url="https://github.com/verdude/ignore"
 source=("git+${url}")
-sha256sums=("SKIP")
-pkgdesc="ignore file gen"
+sha256sums=('SKIP')
+makedepends=("git" "go")
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    make
+}
+
+check() {
+    cd "${srcdir}/${pkgname}"
+    make test
+}
 
 package() {
     cd "${srcdir}/${pkgname}"
-
+    make DESTDIR=/${pkgdir} install
 }
