@@ -2,6 +2,7 @@
 
 set -euo pipefail
 
+
 stashed=""
 install=""
 
@@ -31,6 +32,12 @@ pop() {
   fi
 }
 
+function exit() {
+  git clean -dff
+  pop
+}
+trap exit EXIT
+
 stash
 makepkg -cCsrf$install
 set +e
@@ -44,6 +51,3 @@ if [[ $result -eq 1 ]]; then
   git commit -m "$(basename $(pwd)) ${pkgver}"
   git push
 fi
-
-git clean -dff
-pop
