@@ -15,8 +15,9 @@ done
 stash() {
   set +e
   git diff-files --quiet
+  result=$?
   set -e
-  if [[ $? -eq 1 ]]; then
+  if [[ $result -eq 1 ]]; then
     git reset
     git stash save -u
     stashed="1"
@@ -34,12 +35,13 @@ stash
 makepkg -cCsrf$install
 set +e
 git diff-files --quiet
+result=$?
 set -e
 
-if [[ $? -eq 1 ]]; then
+if [[ $result -eq 1 ]]; then
   . PKGBUILD
   git add ./PKGBUILD
-  git commit -m "$(basename $(pwd)) $(pkgver)"
+  git commit -m "$(basename $(pwd)) ${pkgver}"
   git push
 fi
 
