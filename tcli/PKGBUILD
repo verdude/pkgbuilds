@@ -7,10 +7,11 @@ url='https://git.sr.ht/~erra/tcli'
 source=("git+${url}")
 sha256sums=('SKIP')
 makedepends=('git' 'go')
+_projectname="tcli"
 
 build() {
     cd "${srcdir}/${pkgname}"
-    make CONF_PREFIX=/etc/tcli LOG_PREFIX=/tmp CONFIGFILE=config.toml
+    make PROJECT=$_projectname CONF_PREFIX=/etc/$_projectname LOG_PREFIX=/tmp CONFIGFILE=config.toml
 }
 
 pkgver() {
