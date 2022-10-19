@@ -10,7 +10,7 @@ makedepends=('git' 'go')
 
 build() {
     cd "${srcdir}/${pkgname}"
-    make CONF_PREFIX=/etc/tcli LOG_PREFIX=/tmp
+    make CONF_PREFIX=/etc/tcli LOG_PREFIX=/tmp CONFIGFILE=config.toml
 }
 
 pkgver() {
