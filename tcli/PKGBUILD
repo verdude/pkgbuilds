@@ -1,0 +1,29 @@
+pkgname=tcli
+arch=('x86_64')
+pkgdesc='tcli'
+pkgrel=1
+pkgver=0.1.0
+url='https://git.sr.ht/~erra/tcli'
+source=("git+${url}")
+sha256sums=('SKIP')
+makedepends=('git' 'go')
+
+build() {
+    cd "${srcdir}/${pkgname}"
+    make release
+}
+
+pkgver() {
+    cd "${srcdir}/${pkgname}"
+    git describe --tags --abbrev=0
+}
+
+check() {
+    cd "${srcdir}/${pkgname}"
+    make test
+}
+
+package() {
+    cd "${srcdir}/${pkgname}"
+    make DESTDIR=/${pkgdir} install
+}
