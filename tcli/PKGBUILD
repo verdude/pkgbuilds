@@ -10,21 +10,21 @@ makedepends=('git' 'go')
 _projectname="$pkgname"
 
 build() {
-    cd "${srcdir}/${pkgname}"
+    cd "${srcdir}/${pkgname}" || exit
     make PROJECT=$_projectname CONF_PREFIX=/etc/$_projectname LOG_PREFIX=/tmp CONFIGFILE=config.toml
 }
 
 pkgver() {
-    cd "${srcdir}/${pkgname}"
+    cd "${srcdir}/${pkgname}" || exit
     git describe --tags --abbrev=0
 }
 
 check() {
-    cd "${srcdir}/${pkgname}"
+    cd "${srcdir}/${pkgname}" || exit
     make test
 }
 
 package() {
-    cd "${srcdir}/${pkgname}"
+    cd "${srcdir}/${pkgname}" || exit
     make CONFIGFILE=config.toml.example DESTDIR=/${pkgdir} install
 }
