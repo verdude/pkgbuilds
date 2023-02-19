@@ -8,3 +8,7 @@ _rpmname="MullvadVPN-${pkgver}_x86_64.rpm"
 source=("https://mullvad.net/media/app/${_rpmname}")
 sha256sums=('e5778296d15cbc1ee7e86b56369174ddca9ce920cbab1a79bac164cee882759a')
 _projectname="$pkgname"
+
+package() {
+    cp -r "${srcdir}/usr" "${pkgdir}/"
+}
