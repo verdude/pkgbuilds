@@ -1,8 +1,8 @@
 pkgname=tcli
 arch=('x86_64')
 pkgdesc='tcli'
-pkgrel=2
-pkgver=0.1.5
+pkgrel=1
+pkgver=0.1.4
 url='https://github.com/verdude/tcli'
 source=("git+${url}")
 sha256sums=('SKIP')
