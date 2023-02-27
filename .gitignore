@@ -6,3 +6,6 @@ assets/
 build/
 .terraform*
 terraform.tfstate*
+*.deb
+*.rpm
+*.zst

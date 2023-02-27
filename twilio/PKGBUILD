@@ -1,0 +1,17 @@
+pkgname='twilio-cli-bin'
+arch=('x86_64')
+pkgdesc='Twilio CLI'
+pkgrel=1
+pkgver=5.4.1
+url='https://twilio.com'
+_debname="twilio-${pkgver}-amd64.deb"
+source=("https://github.com/twilio/twilio-cli/releases/download/${pkgver}/${_debname}")
+sha256sums=('742e25c67ae8d5a9fa64eafff19182d0226915d867d7c8a0082d2b6f322ca5df')
+
+prepare() {
+  bsdtar xf data.tar.zst
+}
+
+package() {
+  cp -r "${srcdir}/usr" "${pkgdir}/"
+}
