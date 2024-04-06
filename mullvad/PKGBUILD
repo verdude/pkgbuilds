@@ -2,11 +2,11 @@ pkgname='mullvad'
 arch=('x86_64')
 pkgdesc='mullvad vpn'
 pkgrel=1
-pkgver=2023.6
+pkgver=2024.1
 url='https://mullvad.net'
 _rpmname="MullvadVPN-${pkgver}_x86_64.rpm"
 source=("https://mullvad.net/media/app/${_rpmname}")
-sha256sums=('86952a5620048eb27ab2478d19e451bd28ba39df2b0cbfd92cbecc35ce0940a9')
+sha256sums=('81a843042a8ec4c65b3500785cc796651bfc98605ee389f1cbaae86fbd4450de')
 _projectname="$pkgname"
 
 package() {
