@@ -1,4 +1,4 @@
-pkgname='warp'
+pkgname='cloudflare-warp'
 arch=('x86_64')
 pkgdesc='cloudflare warp'
 pkgrel=1
@@ -9,8 +9,8 @@ source=("https://downloads.cloudflareclient.com/v1/download/fedora35-intel/versi
 sha256sums=('b89678d6ae5ad8219a6af430be8b42d96b663e9dc20bf4fd3dd8a2606f2a0d54')
 _projectname="$pkgname"
 
-patch() {
-  patch opt/cloudflare-warp/warp-svc.service < svc.patch
+prepare() {
+  patch "${srcdir}/opt/cloudflare-warp/warp-svc.service" < "${startdir}/svc.patch"
 }
 
 package() {
