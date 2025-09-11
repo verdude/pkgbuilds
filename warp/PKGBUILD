@@ -6,10 +6,14 @@ pkgver=2025.6.1335.0
 url='https://cloudflare.com'
 _rpmname="CloudflareWarp-${pkgver}_x86_64.rpm"
 source=("https://downloads.cloudflareclient.com/v1/download/fedora35-intel/version/${pkgver}")
-sha256sums=('5369aaf2b0bcff975e6f7c4314733e58e7c98bdd43500bfab1325e568a38bcff')
+sha256sums=('b89678d6ae5ad8219a6af430be8b42d96b663e9dc20bf4fd3dd8a2606f2a0d54')
 _projectname="$pkgname"
+
+patch() {
+  patch opt/cloudflare-warp/warp-svc.service < svc.patch
+}
 
 package() {
     cp -r "${srcdir}/opt" "${pkgdir}/"
-    cp -r "${srcdir}/bin" "${pkgdir}/"
+    cp -r "${srcdir}/bin" "${pkgdir}/usr/"
 }
