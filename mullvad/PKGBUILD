@@ -10,5 +10,6 @@ sha256sums=('5369aaf2b0bcff975e6f7c4314733e58e7c98bdd43500bfab1325e568a38bcff')
 _projectname="$pkgname"
 
 package() {
+    # /usr/bin -> /bin
     cp -r "${srcdir}/usr" "${pkgdir}/"
 }

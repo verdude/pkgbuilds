@@ -1,0 +1,20 @@
+pkgname=dex
+arch=('x86_64')
+pkgdesc='dex'
+pkgrel=1
+pkgver=0.1.0
+url='https://github.com/verdude/dex'
+source=("git+${url}")
+sha256sums=('SKIP')
+makedepends=('git')
+_projectname="$pkgname"
+
+package() {
+    _sharedir="${pkgdir}/usr/share/dex/"
+    _bindir="${pkgdir}/usr/bin/"
+    mkdir -p "$_sharedir"
+    mkdir -p "$_bindir"
+
+    cp "${srcdir}/${pkgname}/dex.txt" "$_sharedir"
+    cp "${srcdir}/${pkgname}/pkmn" "${_bindir}/dex"
+}
