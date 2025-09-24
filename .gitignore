@@ -10,3 +10,5 @@ terraform.tfstate*
 *.rpm
 *.zst
 *.xz
+pkg/
+src/

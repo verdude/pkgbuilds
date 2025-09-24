@@ -6,7 +6,7 @@ pkgver=0.1.4
 url='https://github.com/verdude/tcli'
 source=("git+${url}")
 sha256sums=('SKIP')
-makedepends=('git' 'go')
+makedepends=('git')
 _projectname="$pkgname"
 
 build() {
