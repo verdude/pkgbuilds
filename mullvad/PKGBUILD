@@ -1,15 +1,16 @@
 pkgname='mullvad'
 arch=('x86_64')
 pkgdesc='mullvad vpn'
-pkgrel=1
-pkgver=2025.8
+pkgrel=2
+pkgver=2025.9
 url='https://mullvad.net'
 _rpmname="MullvadVPN-${pkgver}_x86_64.rpm"
 source=("https://cdn.mullvad.net/app/desktop/releases/${pkgver}/${_rpmname}")
-sha256sums=('5369aaf2b0bcff975e6f7c4314733e58e7c98bdd43500bfab1325e568a38bcff')
+sha256sums=('066ff632a1ac927bc1d07bbd594fabc2f1ba7fe2dd44640d4aeffaabf6466422')
 _projectname="$pkgname"
 
 package() {
     # /usr/bin -> /bin
-    cp -r "${srcdir}/usr" "${pkgdir}/"
+    cp -r "${srcdir}/usr" "${pkgdir}/usr"
+    rm -rf "${pkgdir}/usr/local/"
 }
