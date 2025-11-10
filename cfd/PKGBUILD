@@ -1,7 +1,7 @@
 pkgname='cloudflared'
 arch=('x86_64')
 pkgdesc='cloudflared'
-pkgrel=1
+pkgrel=2
 pkgver=2025.11.1
 url='https://cloudflare.com'
 _rpmname='cloudflared-linux-x86_64.rpm'
@@ -16,5 +16,7 @@ _projectname="$pkgname"
 
 package() {
     cp -r "${srcdir}/usr" "${pkgdir}/"
-    cp config.yml "${pkgdir}/etc/cloudflared/"
+    _etc="${pkgdir}/etc/cloudflared/"
+    mkdir -p "${_etc}"
+    cp "${srcdir}/../config.yml" "${_etc}"
 }
