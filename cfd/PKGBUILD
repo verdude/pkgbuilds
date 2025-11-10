@@ -16,4 +16,5 @@ _projectname="$pkgname"
 
 package() {
     cp -r "${srcdir}/usr" "${pkgdir}/"
+    cp config.yml "${pkgdir}/etc/cloudflared/"
 }
