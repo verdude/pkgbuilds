@@ -1,0 +1,19 @@
+pkgname='cloudflared'
+arch=('x86_64')
+pkgdesc='cloudflared'
+pkgrel=1
+pkgver=2025.11.1
+url='https://cloudflare.com'
+_rpmname='cloudflared-linux-x86_64.rpm'
+source=("https://github.com/cloudflare/cloudflared/releases/latest/download/${_rpmname}")
+sha256sums=('3a9869680c08f8c29fb85736a9d44dfe9cd2b3aaec624955b3a1f39fbe2175b4')
+_projectname="$pkgname"
+
+# $ usr/bin/cloudflared -v
+#  cloudflared version 2025.11.1 (built 2025-11-07-16:59 UTC)
+# $ shasum -a 256 cloudflared-linux-x86_64.rpm
+#  3a9869680c08f8c29fb85736a9d44dfe9cd2b3aaec624955b3a1f39fbe2175b4  cloudflared-linux-x86_64.rpm
+
+package() {
+    cp -r "${srcdir}/usr" "${pkgdir}/"
+}
